@@ -39,17 +39,18 @@ public class AdventureGame : MonoBehaviour
         // shorthand when variable is declared and initialised
         // the method returns an array of states, so var has context
         var nextStates = state.GetNextStates();
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        
+        // loop through the array
+        // declare + initialisation, condition, increment
+        // if index is < length of the array then iterate
+        for (int index=0; index < nextStates.Length; index++)
         {
-            state = nextStates[0];
-        }
-        else if(Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            state = nextStates[1];
-        }
-        else if(Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            state = nextStates[2];
+            // add the index to the keycode variable (for example alpha1 (1) plus index (0) still 1 so go to that index)
+            // if alpha1 + 1 then = 2 that should be in the array so go to that scene object
+            if(Input.GetKeyDown(KeyCode.Alpha1 + index))
+            {
+                state = nextStates[index];
+            }
         }
 
         //textComponent.text = state.GetStateStory();
